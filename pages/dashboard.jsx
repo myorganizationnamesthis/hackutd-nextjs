@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { NavBar } from "../components/Navbar";
 import { ref } from "@firebase/storage";
 import { useUploadFile } from "react-firebase-hooks/storage";
-import Modal from "../components/Modal";
+import { Modal } from "../components/Modal";
 import { initFirebase, storage } from "../firebase/clientApp";
 import {useUser} from "../firebase/useUser";
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
-export function NavBar () {
+export function Navbar () {
   const [nav, setNav] = useState(false);
   const [color, setColor] = useState('transparent');
   const [textColor, setTextColor] = useState('white');
@@ -25,30 +25,27 @@ export function NavBar () {
   }, []);
 
   return (
-    <div
-      style={{ backgroundColor: `${color}` }}
-      className='fixed left-0 top-0 w-full z-10 ease-in duration-300'
-    >
-      <div className='max-w-[1240px] m-auto flex justify-between items-center p-4 text-white'>
+    <div className='fixed left-0 top-0 w-full z-10 ease-in duration-300'>
+      <div className='m-auto flex justify-between items-center p-4 text-highlight'>
         <Link href='/'>
-          <h1 style={{ color: `${textColor}` }} className='font-bold text-4xl'>
+          <h1 className='font-bold text-highlight text-4xl hover:text-primary duration-300 ml-2'>
             CONNEQT
           </h1>
         </Link>
-        <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
-          <li className="mx-6 text-2xl font-bold my-auto">
+        <ul className='hidden sm:flex'>
+          <li className="mx-6 text-2xl font-bold my-auto hover:text-primary duration-300">
             <Link href="/about">About</Link>
           </li>
-          <li className="mx-6 text-2xl font-bold my-auto">
+          <li className="mx-6 text-2xl font-bold my-auto hover:text-primary duration-300">
             <Link href="/Contact">Contact</Link>
           </li>
-          <li className="mr-8 ml-6 text-2xl font-bold my-auto">
+          <li className="mr-4 ml-6 text-2xl font-bold my-auto hover:text-primary duration-300">
             <Link href="/login">Login</Link>
           </li>
         </ul>
 
         {/* Mobile Button */}
-        <div onClick={handleNav} className='block sm:hidden z-10'>
+        <div onClick={handleNav} className='block sm:hidden z-10 mr-4'>
           {nav ? (
             <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
           ) : (
@@ -64,16 +61,13 @@ export function NavBar () {
           }
         >
           <ul>
-            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-              <Link href='/'>Home</Link>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-primary duration-300'>
+              <Link href='/#gallery'>About</Link>
             </li>
-            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
-              <Link href='/#gallery'>Gallery</Link>
-            </li>
-            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-primary duration-300'>
               <Link href='/work'>Contact</Link>
             </li>
-            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-primary duration-300'>
               <Link href='/contact'>Login</Link>
             </li>
           </ul>
