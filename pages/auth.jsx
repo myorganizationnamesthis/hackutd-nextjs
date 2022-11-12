@@ -11,7 +11,6 @@ import { setUserCookie } from "../firebase/cookies";
 
 const uiConfig = {
     signInSuccessUrl: "/",
-    signInFlow: "popup",
     signInOptions: [
         GoogleAuthProvider.PROVIDER_ID,
         {

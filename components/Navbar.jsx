@@ -17,7 +17,7 @@ export function NavBar() {
                     <Link href="/Contact">Contact</Link>
                 </li>
                 <li className="mr-8 ml-6 text-2xl font-bold my-auto">
-                    {user ? <Link href="/dashboard">Dashboard</Link> : <Link href="/auth">Login</Link>}
+                    {user ? <div onClick={() => logout()}>Logout</div> : <Link href="/auth">Login</Link>}
                 </li>
             </ul>
         </div>

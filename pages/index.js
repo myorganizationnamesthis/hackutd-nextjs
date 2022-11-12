@@ -16,11 +16,9 @@ export default function Home() {
         <title>Home | ConnectApp</title>
       </Head>
       <NavBar />
-      <body>
         {user ? null : <div className='text-primary text-2xl'>
           Welcome to CONNEQT! This application lets you create a digital business card from just a resume! Please sign in to begin...
         </div>}
-      </body>
     </>
 
   )
