@@ -9,9 +9,7 @@ export default function Home() {
       <Head>
         <title>Home | ConnectApp</title>
       </Head>
-      <body>
-        <NavBar />
-      </body>
+      <NavBar />
     </>
 
   )
