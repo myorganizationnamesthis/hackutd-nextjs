@@ -2,9 +2,10 @@ import Head from "next/head";
 import { useRef, useState } from "react";
 import { NavBar } from "../components/Navbar";
 import { ref, getDownloadURL } from "@firebase/storage";
+import {doc, setDoc } from "firebase/firestore";
 import { useUploadFile } from "react-firebase-hooks/storage";
 import Modal from "../components/Modal";
-import { initFirebase, storage } from "../firebase/clientApp";
+import { initFirebase, storage, db } from "../firebase/clientApp";
 import {useUser} from "../firebase/useUser";
 
 initFirebase();
@@ -27,10 +28,11 @@ export default function Dashboard() {
                 contentType: "application/pdf"
             });
             setResult(r);
-            console.log(snapshot);
-            console.log(error);
-            console.log("result",r);
-            console.log("Reference", await getDownloadURL(sRef));
+            const resumeUrl = await getDownloadURL(sRef);
+            await setDoc(doc(db, "resumes", user.id), {
+                resumeUrl
+            });
+            window.location.reload();
         }
         else {
             setShowSelectFile(true);
