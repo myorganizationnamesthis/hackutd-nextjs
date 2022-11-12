@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { useUser } from "../firebase/useUser";
 
 export function NavBar() {
+    const { user, logout } = useUser();
     return (
         <div className="bg-background text-primary py-4">
             <ul className="flex flex-row">
@@ -15,7 +17,7 @@ export function NavBar() {
                     <Link href="/Contact">Contact</Link>
                 </li>
                 <li className="mr-8 ml-6 text-2xl font-bold my-auto">
-                    <Link href="/login">Login</Link>
+                    {user ? <Link href="/profile">Profile</Link> : <Link href="/auth">Login</Link>}
                 </li>
             </ul>
         </div>
