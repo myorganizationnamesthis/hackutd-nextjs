@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { initFirebase } from "./clientApp";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { removeUserCookie, setUserCookie, getUserFromCookie } from "./cookies";
 import { mapUserData } from "./userData";
 
@@ -23,29 +23,16 @@ const useUser = () => {
     }
 
     useEffect(() => {
-        const cancelAuthListener = auth.onIdTokenChanged(async (user) => {
-            if (user) {
-                const userData = mapUserData(user);
+        const cancelAuthListener = onAuthStateChanged(auth, (u) => {
+            if (u) {
+                const userData = mapUserData(u);
                 setUser(userData);
-                setUserCookie(userData);
-            }
-            else {
-                setUser(null);
-                removeUserCookie();
+            } else {
+                setUser();
             }
         });
 
-        const cookieUser = getUserFromCookie();
-        console.log(cookieUser);
-        if (!cookieUser) {
-            router.push("/");
-            return;
-        }
-        setUser(cookieUser);
-
-        return () => {
-            cancelAuthListener();
-        }
+        return () => cancelAuthListener();
     }, []);
 
     return { user, logout };
