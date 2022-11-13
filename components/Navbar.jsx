@@ -27,36 +27,46 @@ export function Navbar() {
   }, [])
 
   return (
-    <div className='left-0 top-0 w-full ease-in duration-300 bg-accent'>
-      <div className='m-auto flex justify-between items-center p-4 text-highlight'>
-        <Link href='/'>
-          <h1 className='font-bold text-highlight text-4xl hover:text-primary duration-300 ml-2'>
-            CONNEQT
-          </h1>
+    <div className='fixed w-full mt-2 text-black'>
+      <div className='container mx-auto px-8 py-4 flex items-center justify-between bg-white rounded-md'>
+        {/* Left Nav */}
+        <div>
+          <div className='flex items-center justify-center font-semibold gap-x-8 hover:text-primary'>
+            <div className='relative group py-2'>
+              <button
+              // onMouseEnter={() => setShowMegaMenu(true)}
+              // onMouseLeave={() => setShowMegaMenu(false)}
+              >
+                Products
+              </button>
+              {/* Dropdown */}
+              <div className='absolute top-5 -left-8 transition group-hover:translate-y-1 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform'>
+                <div className='container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
+                  <div class='w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm'></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Mid Nav */}
+        <Link href='/' className='font-bold text-black text-xl'>
+          TABBED
         </Link>
-        <ul className='hidden sm:flex'>
-          <li className='mx-6 text-2xl font-bold my-auto hover:text-primary duration-300'>
-            <Link href='/about'>About</Link>
-          </li>
-          <li className='mx-6 text-2xl font-bold my-auto hover:text-primary duration-300'>
-            <Link href='/Contact'>Contact</Link>
-          </li>
-          <li className='mr-4 ml-6 text-2xl font-bold my-auto hover:text-primary duration-300'>
-            {user ? (
-              <div onClick={logout}>Logout</div>
-            ) : (
-              <Link href='/contact'>Login</Link>
-            )}
-          </li>
-        </ul>
 
-        {/* Mobile Button */}
-        <div onClick={handleNav} className='block sm:hidden z-10 mr-4'>
-          {nav ? (
-            <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
-          ) : (
-            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
-          )}
+        {/* Right Nav */}
+        <div className='flex flex-row items-center gap-x-8 font-semibold'>
+          <Link href='/about' className='hover:text-primary'>
+            About
+          </Link>
+          <Link href='/contact' className='hover:text-primary'>
+            Contact
+          </Link>
+          <Link
+            href='/'
+            className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
+          >
+            Login
+          </Link>
         </div>
         {/* Mobile Menu */}
         <div
