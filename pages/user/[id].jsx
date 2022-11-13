@@ -8,7 +8,7 @@ const userData = {
     'Amazon Future Engineer | Mustang Scholar | IT Intern @ Scout Energy Partners | CS and Finance at SMU',
   location: 'Dallas, TX',
   description:
-    "I'm a Freshman at Southern Methodist University studying Computer Science and Finance. With a passionate interest in Computer Science, I love to design projects and solve problems, whether that be working with a team or spending my free time learning about a new concept. I also enjoy coding client-side applications in Html, CSS, SCSS, Javascript, React, Next.js, as well as server-side applications in Python, Java, and SQL. I have experience with Oracle Database, PostgreSQL, SQLite, and Microsoft SQL Server. Moreover, I have a passion for investing, and I love to create innovative ideas to bring to the market. Through my previous internships and experiences, I have learned how to hone my skills of leadership, creativity, teamwork, and perseverance. As of now, I am looking to further maximize my potential and gain even more experience and knowledge.",
+    'With a passionate interest in Computer Science, I love to design projects and solve problems, whether that be working with a team or spending my free time learning about a new concept.',
   email: '',
   skills: [
     'Python',
@@ -20,7 +20,7 @@ const userData = {
     'CSS',
     'Tableau',
   ],
-  number: '',
+  number: '4698036844',
   link: [
     {
       name: 'LinkedIn',
@@ -72,7 +72,7 @@ const Profile = () => {
                     href='/'
                     className='absolute right-4 text-secondary font-bold italic hover:opacity-80 hover:scale-75'
                   >
-                    CONNECTQ
+                    CONNEQT
                   </Link>
                 </div>
 
@@ -99,20 +99,20 @@ const Profile = () => {
               } backface-hidden`}
               onClick={() => setFlipCard(!flipCard)}
             >
-              <div className='bg-gradient-to-t from-primary via-secondary to-violet-400  rounded-xl h-64'>
+              <div className='bg-gradient-to-t from-primary via-secondary to-violet-400 rounded-xl h-64'>
                 {/* Profile Pic */}
                 <div className='rounded-t-xl pl-2 pt-2 h-32 '>
-                  <div className='rounded-full bg-red-500 w-32 h-32 absolute right-2 border-violet-400 border-2'></div>
+                  <div className='rounded-full bg-red-500 w-32 h-32 absolute right-2 top-1 border-violet-400 border-2'></div>
 
                   <Link
                     href='/'
                     className='absolute left-4 text-white font-bold italic hover:opacity-80 hover:scale-75'
                   >
-                    CONNECTQ
+                    CONNEQT
                   </Link>
                 </div>
 
-                <div className='px-2 pb-4 mt-2 '>
+                <div className='px-2 pb-4 mt-1 '>
                   {/* Name */}
                   <div className='font-bold text-3xl text-white line-clamp-2 md:line-clamp-1'>
                     {userData.college_name}
@@ -134,11 +134,17 @@ const Profile = () => {
 
         {/* Save Contact */}
         <div className='flex flex-row pt-2 m-2 gap-x-2 '>
-          <div className='flex flex-row bg-gradient-to-r from-secondary to-blue-500 rounded-xl justify-center items-center flex-auto hover:scale-[101%] hover:text-white '>
-            <div className='font-bold text-2xl'>Save Contact</div>
-          </div>
+          <Link
+            href={`tel:${userData.number}`}
+            className='flex flex-row bg-gradient-to-r from-secondary to-blue-500 rounded-xl justify-center items-center flex-auto hover:scale-[101%] hover:text-white hover:cursor-pointer	 '
+          >
+            <div className='font-bold text-2xl'>Contact</div>
+          </Link>
 
-          <div className='flex flex-row bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl w-16 h-16 justify-center items-center hover:text-white cursor-pointer hover:scale-[101%]'>
+          <Link
+            href=''
+            className='flex flex-row bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl w-16 h-16 justify-center items-center hover:text-white cursor-pointer hover:scale-[101%]'
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
@@ -153,7 +159,7 @@ const Profile = () => {
                 d='M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3'
               />
             </svg>
-          </div>
+          </Link>
         </div>
 
         {/* Description */}
@@ -161,7 +167,7 @@ const Profile = () => {
           {/* About Me */}
           <div className='bg-gradient-to-l from-secondary to-blue-500 mt-1 px-2 rounded-xl '>
             <div className='font-semibold'>About Me</div>
-            <div className='pl-4 text-sm italic line-clamp-8 md:line-clamp-6 text-gray-300'>
+            <div className='pl-4 text-sm italic line-clamp-5 md:line-clamp-3 text-gray-300'>
               {userData.description}
             </div>
           </div>
