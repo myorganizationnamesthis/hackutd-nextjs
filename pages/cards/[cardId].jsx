@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { doc, getDoc } from "@firebase/firestore";
+import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { useEffect, useState } from "react";
 import { initFirebase, db } from "../../firebase/clientApp";
 import { useUser } from "../../firebase/useUser";
@@ -11,6 +11,19 @@ export default function Card() {
     const router = useRouter();
     const { cardId } = router.query;
     const [resume, setResume] = useState();
+    const [processing, setProcessing] = useState(false);
+
+    const handleUpdate = async () => {
+        if (user) {
+            setProcessing(true);
+            if (typeof resume?.skills === "string") {
+                resume.skills = resume.skills.split(",");
+            }
+            const docRef = doc(db, "users", user.id, "resumes", cardId);
+            await setDoc(docRef, resume);
+            router.push("/dashboard");
+        }
+    }
 
     const handlePageLoad = async () => {
         const docRef = doc(db, "users", user.id, "resumes", cardId);
@@ -45,6 +58,10 @@ export default function Card() {
                         }} />
                     </div>
                 }) : null}
+                <div className="flex">
+                    <button className="block bg-secondary px-4 py-2 mx-4 mt-8 rounded text-highlight disabled:opacity-50" onClick={() => router.push("/dashboard")}>Back</button>
+                    <button className="block bg-secondary px-4 py-2 mt-8 rounded text-highlight disabled:opacity-50" onClick={handleUpdate} disabled={processing}>Update</button>
+                </div>
             </div>
         </main>
     );
