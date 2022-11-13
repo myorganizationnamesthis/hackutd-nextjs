@@ -81,7 +81,7 @@ export function Navbar() {
 
           {/* Right Nav */}
           <div className='flex flex-row items-center gap-x-8 font-semibold'>
-            <Link href='/about' className='hover:text-primary hidden md:flex'>
+            <Link href='/' className='hover:text-primary hidden md:flex'>
               About
             </Link>
             {user ? (
