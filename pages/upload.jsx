@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useRef, useState } from "react";
+import { useRouter } from "next/router";
 import { ref, getDownloadURL } from "@firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { useUploadFile } from "react-firebase-hooks/storage";
@@ -10,6 +11,7 @@ import { useUser } from "../firebase/useUser";
 initFirebase();
 
 export default function Upload() {
+    const router = useRouter();
     const fRef = useRef();
     const { user, logout } = useUser();
     const [uploadFile, uploading, snapshot, error] = useUploadFile();
@@ -28,10 +30,11 @@ export default function Upload() {
             });
             setResult(r);
             const resumeUrl = await getDownloadURL(sRef);
-            await addDoc(collection(db, "users", user.id, "resumes"), {
-                resumeUrl
-            });
-            window.location.reload();
+            // await addDoc(collection(db, "users", user.id, "resumes"), {
+            //     resumeUrl
+            // });
+            // window.location.reload();
+            router.push("/dashboard");
         }
         else {
             setShowSelectFile(true);
