@@ -36,7 +36,7 @@ export default function Dashboard() {
         <Head>
             <title>Upload | CONNEQT</title>
         </Head>
-        <div className="ml-4">
+        {user ? <div className="ml-4">
             <h1 className="text-6xl font-bold">Dashboard</h1>
             <p className="text-highlight mt-4 text-xl">Hello, {user?.name}!</p>
             {resumes.length > 0 ? <p className="text-highlight mt-4 text-xl">You have {resumes.length} digital business card{resumes.length > 1 ? "s" : ""} uploaded.</p> : <p className="text-highlight mt-4 text-xl">You have no digital business cards.</p>}
@@ -46,7 +46,7 @@ export default function Dashboard() {
                 </button>
             })}
             <button className="block bg-secondary px-4 py-2 mt-8 rounded text-highlight disabled:opacity-50" onClick={() => Router.push("/upload")}>Create new</button>
-        </div>
+        </div> : null}
     </>
 
     );
