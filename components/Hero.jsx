@@ -33,10 +33,10 @@ export function Hero({ heading, message }) {
         <div className='flex items-end md:block mt-8 md:mt-0 md:flex-1'>
           <Image
             // loader={myLoader}
-            src='/robot.png'
-            alt='Picture of the author'
+            src='/hero.png'
+            alt='Hero Image'
             width={1200}
-            height={1200}
+            height={400}
           />
         </div>
       </section>

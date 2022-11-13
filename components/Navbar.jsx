@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { useUser } from '../firebase/useUser'
+import Card from './Card'
 
 export function Navbar() {
   const { user, logout } = useUser()
@@ -40,9 +41,23 @@ export function Navbar() {
                 Products
               </button>
               {/* Dropdown */}
-              <div className='absolute top-5 -left-8 transition group-hover:translate-y-1 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform'>
-                <div className='container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
-                  <div class='w-10 h-10 bg-white transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[12rem] duration-500 ease-in-out rounded-sm'></div>
+              <div className='absolute top-5 -left-8 transition group-hover:translate-y-1 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform '>
+                <div className='flex flex-row justify-around container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
+                  <Card
+                    header={'Conneqt Card'}
+                    price={'40'}
+                    logoUrl={'/conneqt_card.png'}
+                  />
+                  <Card
+                    header={'Conneqt Tag'}
+                    price={'20'}
+                    logoUrl={'/conneqt_card.png'}
+                  />
+                  <Card
+                    header={'Conneqt Ring'}
+                    price={'20'}
+                    logoUrl={'/conneqt_card.png'}
+                  />
                 </div>
               </div>
             </div>
@@ -76,8 +91,8 @@ export function Navbar() {
         <div
           className={
             nav
-              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
-              : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-500'
+              : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-500'
           }
         >
           <ul>
