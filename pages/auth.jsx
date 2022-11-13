@@ -6,8 +6,7 @@ import {
     EmailAuthProvider
 } from "firebase/auth";
 import { initFirebase } from "../firebase/clientApp";
-import { mapUserData } from "../firebase/userData";
-import { setUserCookie } from "../firebase/cookies";
+import { useUser } from "../firebase/useUser";
 
 const uiConfig = {
     signInSuccessUrl: "/",
@@ -19,12 +18,6 @@ const uiConfig = {
         }
     ],
     credentialHelper: "none",
-    callbacks: {
-        signInSuccessWithAuthResult: async ({ user }, redirectUrl) => {
-            const userData = mapUserData(user);
-            setUserCookie(userData);
-        },
-    },
 };
 
 initFirebase();
@@ -33,12 +26,16 @@ const auth = getAuth();
 
 export default function Auth() {
     const [viewAuth, setViewAuth] = useState(false);
+    const {user} = useUser();
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             setViewAuth(true);
         }
-    }, []);
+        if (user) {
+            window.location.href = "/dashboard";
+        }
+    }, [user]);
     return (
         <div>
             {viewAuth ?
