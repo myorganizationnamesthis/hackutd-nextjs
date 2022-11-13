@@ -5,7 +5,8 @@ import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
-  const showNavBar = router.pathname === '/user/[id]' ? false : true
+  const showNavBar = router.pathname === '/users/[userId]/businesscards/[resumeId]' ? false : true
+  console.log("Path is", router.pathname)
 
   return (
     <>

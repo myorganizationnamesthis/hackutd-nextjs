@@ -47,7 +47,7 @@ export default function Card() {
         {user ?
             <main className="ml-4">
                 <h1 className="text-6xl font-bold mt-2">Resume Data</h1>
-                <button className="block bg-secondary px-4 py-2 mt-8 rounded text-highlight disabled:opacity-50" onClick={() => router.push(`/users/${user.id}/resumes/${cardId}`)} disabled={processing}>View Published Card</button>
+                <button className="block bg-secondary px-4 py-2 mt-8 rounded text-highlight disabled:opacity-50" onClick={() => router.push(`/users/${user.id}/businesscards/${cardId}`)} disabled={processing}>View Published Card</button>
                 <div className="text-primary text-xl my-4">Update resume info</div>
                 <div className="max-w-[50%]">
                     {typeof resume === "object" ? Object.keys(resume).map((k, index) => {
