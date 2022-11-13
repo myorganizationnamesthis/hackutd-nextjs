@@ -56,7 +56,7 @@ const Profile = () => {
     const resDoc = await getDoc(docRef);
     if (resDoc.exists()) {
       const card = resDoc.data();
-      card.link = [{ name: "LinkedIn", link: card.linkedIn ?? "" }, { name: "Github", link: card.github ?? "" }, { name: "Twitter", link: card.twitter ?? "" }];
+      card.link = [{ name: "LinkedIn", link: card.linkedin ?? "" }, { name: "Github", link: card.github ?? "" }, { name: "Twitter", link: card.twitter ?? "" }];
       console.log("Document data:", card);
       setUserData(card);
     } else {
