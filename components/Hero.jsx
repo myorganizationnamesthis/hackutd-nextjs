@@ -1,18 +1,45 @@
-import React from 'react';
-import { useRouter } from "next/router"
+import React from 'react'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 export function Hero({ heading, message }) {
-  const router = useRouter();
+  const router = useRouter()
   return (
-    <div className='z-[-5] flex items-center justify-center h-screen bg-center bg-cover custom-img'>
-      <div className='block absolute top-[4.5rem] h-screen left-0 right-0 bottom-0 bg-black opacity-60' />
-      {/* Overlay */}
-      <div className='absolute top-0 left-0 right-0 bottom-0' />
-      <div className='p-5 text-highlight mt-[-10rem] z-10'>
-        <h2 className='text-5xl font-bold'>{heading}</h2>
-        <p className='py-5 text-xl'>{message}</p>
-        <button className='z-[100] text-background bg-highlight px-8 py-2 border border-accent rounded hover:bg-primary duration-300' onClick={() => router.push("/auth")}>Get Started</button>
-      </div>
+    <div className=''>
+      <section class='pt-24 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 bg-gradient-to-br from-pink-500 via-indigo-500 to-primary'>
+        <div class='md:flex-1 md:mr-10'>
+          <h1 class='font-pt-serif text-5xl font-bold mb-7 text-white'>
+            Empowering{' '}
+            <span class='bg-underline1 bg-left-bottom bg-no-repeat pb-2 bg-100%'>
+              seamless connections
+            </span>
+          </h1>
+          <p class='font-pt-serif text-2xl font-normal mb-7 text-white italic'>
+            Conneqt smart business card helps you build and nurture new
+            connections.
+          </p>
+          <div class='font-montserrat'>
+            <button
+              class='bg-primary px-6 py-4 rounded-lg text-black mr-2 mb-2 hover:bg-secondary'
+              onClick={() => router.push('/auth')}
+            >
+              Get Started
+            </button>
+            {/* <button class='px-6 py-4 border-2 border-white   text-white border-solid rounded-lg hover:text-white hover:border-secondary'>
+              Secondary action
+            </button> */}
+          </div>
+        </div>
+        <div className='flex items-end md:block mt-8 md:mt-0 md:flex-1'>
+          <Image
+            // loader={myLoader}
+            src='/robot.png'
+            alt='Picture of the author'
+            width={1200}
+            height={1200}
+          />
+        </div>
+      </section>
     </div>
-  );
-};
+  )
+}
