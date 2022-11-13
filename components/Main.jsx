@@ -1,41 +1,22 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
 import { wrap } from "@motionone/utils";
 import Card from './Card.jsx'
 
-function ParallaxText({ children, baseVelocity = 10 }) {
+function ParallaxText({ start, side }) {
 
-  const baseX = useMotionValue(0);
+  const [x, setX] = useState(0);
   const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false
-  });
 
-  const x = useTransform(baseX, (v) => `${wrap(-50, 100, v)}%`);
-
-  const directionFactor = useRef(1);
-  useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
-
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
-    baseX.set(baseX.get() + moveBy);
+  useAnimationFrame(() => {
+    if (side > 0) setX(Math.min(side * scrollY.get() - start, 400));
+    if (side < 0) setX(Math.max(start + side * scrollY.get(), 400));
   });
 
    return (
-    <div className="parallax text-primary text-9xl">
-      <motion.div className="scroller" style={{ x }}>
-        <Card>{children}</Card>
+    <div className="text-primary text-8xl m-10">
+      <motion.div animate={{ x }} transition={{ type: "spring" }}>
+        <Card>Hello</Card>
       </motion.div>
     </div>
   );
@@ -43,15 +24,16 @@ function ParallaxText({ children, baseVelocity = 10 }) {
 
 export function Main() {
   return (
-    <div className='h-screen bg-white'>
+    <div className='h-screen bg-highlight'>
       {/* <!-- Scroll wrapper --> */}
       <div className='flex-1 flex overflow-hidden'>
         {/* <!-- Scrollable container --> */}
         <div className='flex-1 overflow-y-scroll'>
           {/* <!-- Your content --> */}
           <section>
-            <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-            <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
+            <ParallaxText start={250} side={2}>Frame One</ParallaxText>
+            <ParallaxText start={1750} side={-2}>Frame Two</ParallaxText>
+            <ParallaxText start={1600} side={2}>Frame Three</ParallaxText>
           </section>
         </div>
       </div>
