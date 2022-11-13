@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Card = ({ header, price, logoUrl }) => {
+const Card = ({ header, price, logoUrl, width, height }) => {
   return (
     <div className='hover:scale-105 transition-all'>
-      <div className='w-full max-w-sm bg-white rounded-lg shadow-md'>
-        <a href='#'>
-          <Image src={logoUrl} alt='Product' width={400} height={230} />
-        </a>
+      <div className=' max-w-sm bg-white rounded-lg shadow-md'>
+        <div className='h-44 w-[320px] flex flex-row items-center justify-center '>
+          <Image src={logoUrl} alt='Product' width={width} height={height} />
+        </div>
         <div className='px-5 pb-5'>
           <h5 class='text-xl font-semibold tracking-tight text-gray-900 '>
             {header}
