@@ -39,7 +39,7 @@ export default function Dashboard() {
       </Head>
       <div className='overflow-y-auto bg-background h-screen'>
         {user ? (
-          <div className='mt-24 w-full relative mx-1 md:mx-8 '>
+          <div className='mt-24  w-full relative mx-1 md:mx-8 '>
             <h1 className='text-6xl font-bold text-white'>Dashboard</h1>
             <p className='text-highlight mt-4 text-xl'>Hello, {user?.name}!</p>
             {resumes.length > 0 ? (
