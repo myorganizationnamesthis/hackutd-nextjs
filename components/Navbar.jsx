@@ -29,7 +29,7 @@ export function Navbar() {
 
   return (
     <>
-      <div className='fixed w-full mt-2 text-black '>
+      <div className='z-10 fixed w-full mt-2 text-black '>
         <div className='container mx-auto px-8 py-4 flex items-center justify-between bg-white rounded-md'>
           {/* Left Nav */}
           <div className='hidden md:flex'>
@@ -121,26 +121,23 @@ export function Navbar() {
             }
           >
             <ul>
-              <li
-                onClick={handleNav}
-                className='p-4 text-4xl hover:text-primary duration-300'
-              >
-                <Link href='/#gallery'>About</Link>
+              <li className='p-4 text-4xl hover:text-primary duration-300'>
+                <Link href='/about'>About</Link>
               </li>
-              <li
-                onClick={handleNav}
-                className='p-4 text-4xl hover:text-primary duration-300'
-              >
-                <Link href='/work'>Contact</Link>
-              </li>
-              <li
-                onClick={handleNav}
-                className='p-4 text-4xl hover:text-primary duration-300'
-              >
+
+              {user ? (
+                <li className='p-4 text-4xl hover:text-primary duration-300'>
+                  <Link href='/work'>Dashboard</Link>
+                </li>
+              ) : (
+                ''
+              )}
+
+              <li className='p-4 text-4xl hover:text-primary duration-300'>
                 {user ? (
-                  <div onClick={logout}>Logout</div>
+                  <div onClick={() => logout()}>Logout</div>
                 ) : (
-                  <Link href='/contact'>Login</Link>
+                  <Link href='/auth'>Login</Link>
                 )}
               </li>
             </ul>

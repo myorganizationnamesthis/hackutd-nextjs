@@ -70,7 +70,7 @@ const Card = ({ header, price, logoUrl, width, height }) => {
           <div className='flex justify-between items-center'>
             <span className='text-3xl font-bold text-gray-900'>${price}</span>
             <a
-              href='#'
+              href='/shop/1'
               className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
             >
               Shop
