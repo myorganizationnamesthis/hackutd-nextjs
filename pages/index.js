@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>Home | ConnectApp</title>
       </Head>
-      <Hero heading='CONNEQT' message='Student Job Search Made Easy.' />
+      <Hero heading='CONNEQT' message='Professional Connections Made Easy.' />
       <Main />
     </>
   )
