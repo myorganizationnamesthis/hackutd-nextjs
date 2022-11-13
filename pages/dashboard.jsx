@@ -17,8 +17,14 @@ export default function Dashboard() {
             const cRef = collection(db, "users", user.id, "resumes");
             const docs = await getDocs(cRef);
             if (!docs.empty) {
-                const data = docs.docs.map(doc => doc.data());
+                const data = docs.docs.map(doc => {
+                    const d = doc.data();
+                    d.id = doc.id;
+                    return d;
+                });
                 setResumes(data);
+                console.log(docs);
+                console.log(data);
             }
         }
     }
@@ -34,6 +40,11 @@ export default function Dashboard() {
             <h1 className="text-6xl font-bold">Dashboard</h1>
             <p className="text-highlight mt-4 text-xl">Hello, {user?.name}!</p>
             {resumes.length > 0 ? <p className="text-highlight mt-4 text-xl">You have {resumes.length} digital business card{resumes.length > 1 ? "s" : ""} uploaded.</p> : <p className="text-highlight mt-4 text-xl">You have no digital business cards.</p>}
+            {resumes.map((resume, index) => {
+                return <div key={index} className="bg-secondary rounded-lg p-4 mt-4 w-[10rem]">
+                    <p className="text-highlight text-xl text-center" onClick={() => Router.push(`/cards/${resume.id}`)}>Resume {index + 1}</p>
+                </div>
+            })}
             <button className="block bg-secondary px-4 py-2 mt-4 rounded text-highlight disabled:opacity-50" onClick={() => Router.push("/upload")}>Create new</button>
         </div>
     </>
