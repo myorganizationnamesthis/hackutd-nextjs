@@ -205,7 +205,7 @@ const Profile = () => {
             return <Link href={item.link} key={index}>
               <div className='bg-gradient-to-r from-primary via-secondary to-purple-500 rounded-xl h-16 mt-2 ml-8 px-10 relative group hover:scale-[102%]'>
                 <div className='rounded-full bg-white w-14 h-14 absolute top-1 -left-8'>
-                  <Image src={`/${item.name}.png`} alt="" width="128" height="128" className='rounded-full' />
+                  <Image src={`/${item.name.toLowerCase()}.png`} alt="" width="128" height="128" className='rounded-full' />
                 </div>
                 <div className='absolute right-2 top-5 group-hover:text-white'>
                   <svg
