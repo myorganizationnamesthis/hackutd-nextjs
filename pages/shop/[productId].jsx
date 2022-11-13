@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -13,10 +14,12 @@ const Product = () => {
               <div className='mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0'>
                 <div className='group relative'>
                   <div className='relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1'>
-                    <img
-                      src='https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg'
+                    <Image
+                      src='/home-page-02-edition-01.jpg'
                       alt='Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.'
                       className='h-full w-full object-cover object-center'
+                      width={1200}
+                      height={400}
                     />
                   </div>
                   <h3 className='mt-6 text-sm text-gray-500'>
@@ -32,10 +35,12 @@ const Product = () => {
 
                 <div className='group relative'>
                   <div className='relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1'>
-                    <img
-                      src='https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg'
+                    <Image
+                      src='/home-page-02-edition-02.jpg'
                       alt='Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.'
                       className='h-full w-full object-cover object-center'
+                      width={1200}
+                      height={400}
                     />
                   </div>
                   <h3 className='mt-6 text-sm text-gray-500'>
@@ -51,10 +56,12 @@ const Product = () => {
 
                 <div className='group relative'>
                   <div className='relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1'>
-                    <img
-                      src='https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg'
+                    <Image
+                      src='/home-page-02-edition-03.jpg'
                       alt='Collection of four insulated travel bottles on wooden shelf.'
                       className='h-full w-full object-cover object-center'
+                      width={1200}
+                      height={400}
                     />
                   </div>
                   <h3 className='mt-6 text-sm text-gray-500'>
@@ -136,25 +143,33 @@ const Product = () => {
                 </dl>
               </div>
               <div className='grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8'>
-                <img
-                  src='https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg'
+                <Image
+                  src='/product-feature-03-detail-01.jpg'
                   alt='Walnut card tray with white powder coated steel divider and 3 punchout holes.'
                   className='rounded-lg bg-gray-100'
+                  width={1200}
+                  height={400}
                 />
-                <img
-                  src='https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg'
+                <Image
+                  src='/product-feature-03-detail-02.jpg'
                   alt='Top down view of walnut card tray with embedded magnets and card groove.'
                   className='rounded-lg bg-gray-100'
+                  width={1200}
+                  height={400}
                 />
-                <img
-                  src='https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg'
+                <Image
+                  src='/product-feature-03-detail-03.jpg'
                   alt='Side of walnut card tray with card groove and recessed card area.'
                   className='rounded-lg bg-gray-100'
+                  width={1200}
+                  height={400}
                 />
-                <img
-                  src='https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg'
+                <Image
+                  src='/product-feature-03-detail-04.jpg'
                   alt='Walnut card tray filled with cards and card angled in dedicated groove.'
                   className='rounded-lg bg-gray-100'
+                  width={1200}
+                  height={400}
                 />
               </div>
             </div>
