@@ -37,6 +37,7 @@ const userData = {
   ],
   college_name: 'Southern Methodist University',
   degree: 'BA in Computer Science and Finance',
+  grade: 'Sophomore',
 }
 const Profile = () => {
   const Router = useRouter()
@@ -64,8 +65,8 @@ const Profile = () => {
             >
               <div className='bg-gradient-to-b from-cyan-500 to-blue-500 rounded-xl h-64'>
                 {/* Profile Pic */}
-                <div className='bg-gradient-to-t from-secondary rounded-t-xl pl-2 pt-2 h-32'>
-                  <div className='rounded-full bg-green-500 w-32 h-32 absolute'></div>
+                <div className='bg-gradient-to-t from-secondary rounded-t-xl pl-2 pt-2 h-32 '>
+                  <div className='rounded-full bg-green-500 w-32 h-32 absolute border-primary border-2'></div>
 
                   <Link
                     href='/'
@@ -101,7 +102,7 @@ const Profile = () => {
               <div className='bg-gradient-to-t from-primary via-secondary to-violet-400  rounded-xl h-64'>
                 {/* Profile Pic */}
                 <div className='rounded-t-xl pl-2 pt-2 h-32 '>
-                  <div className='rounded-full bg-red-500 w-32 h-32 absolute right-2'></div>
+                  <div className='rounded-full bg-red-500 w-32 h-32 absolute right-2 border-violet-400 border-2'></div>
 
                   <Link
                     href='/'
@@ -114,16 +115,16 @@ const Profile = () => {
                 <div className='px-2 pb-4 mt-2 '>
                   {/* Name */}
                   <div className='font-bold text-3xl text-white line-clamp-2 md:line-clamp-1'>
-                    University of Texas At Dallas
+                    {userData.college_name}
                   </div>
 
                   {/* Title */}
                   <div className='italic font-bold mt-1.5 line-clamp-1 text-white'>
-                    Bachelor of Arts Computer Science
+                    {userData.degree}
                   </div>
                   {/* Location */}
                   <div className='opacity-70 text-sm font-semibold text-white'>
-                    Sophomore
+                    {userData.grade}
                   </div>
                 </div>
               </div>
