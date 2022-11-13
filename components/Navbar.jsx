@@ -27,7 +27,7 @@ export function Navbar() {
   }, [])
 
   return (
-    <div className='fixed w-full mt-2 text-black'>
+    <div className=' w-full mt-2 text-black'>
       <div className='container mx-auto px-8 py-4 flex items-center justify-between bg-white rounded-md'>
         {/* Left Nav */}
         <div>
@@ -65,10 +65,10 @@ export function Navbar() {
             Contact
           </Link>
           <Link
-            href='/'
+            href='/auth'
             className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
           >
-            Login
+            {user ? "Logout" : "Login"}
           </Link>
         </div>
 
