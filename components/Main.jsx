@@ -29,10 +29,10 @@ export function Main() {
         {/* <!-- Scrollable container --> */}
         <div className='flex-1 overflow-y-scroll'>
           {/* <!-- Your content --> */}
-          <section>
-            <ParallaxText description={'Description One'} start={600} side={2} url={'/conneqt_card_1.png'} width={800} height={100}></ParallaxText>
-            <ParallaxText description={'Description Two'} start={600} side={-2} url={'/conneqt_card_2.png'} width={290} height={100}></ParallaxText>
-            <ParallaxText description={'Description Three'} start={600} side={2} url={'/conneqt_card.png'} width={800} height={100}></ParallaxText>
+          <section className="overflow-clip">
+            <ParallaxText description={'Tell an Engaging Story'} start={600} side={2} url={'/conneqt_card_1.png'} width={800} height={100}></ParallaxText>
+            <ParallaxText description={'Turn Encounters Into Opportunities'} start={600} side={-2} url={'/conneqt_card_2.png'} width={290} height={100}></ParallaxText>
+            <ParallaxText description={'Make Every Interaction Count'} start={600} side={2} url={'/conneqt_card.png'} width={800} height={100}></ParallaxText>
           </section>
         </div>
       </div>
