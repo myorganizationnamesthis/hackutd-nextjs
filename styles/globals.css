@@ -31,7 +31,7 @@ a {
 
 .custom-img {
   background-image: url('https://wallpaper.dog/large/20407836.jpg');
-  height: calc(100vh - 4.45rem);
+  height: 100vh;
 }
 
 @media (prefers-color-scheme: dark) {
