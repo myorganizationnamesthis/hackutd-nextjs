@@ -1,22 +1,21 @@
-import { useState, useRef } from "react";
-import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimationFrame } from "framer-motion";
-import { wrap } from "@motionone/utils";
-import Card from './Card.jsx'
+import { useState } from "react";
+import { motion, useScroll, useAnimationFrame } from "framer-motion";
+import Longcard from './Longcard.jsx'
 
-function ParallaxText({ start, side }) {
+function ParallaxText({ description, start, side, url, width, height }) {
 
   const [x, setX] = useState(0);
   const { scrollY } = useScroll();
 
   useAnimationFrame(() => {
-    if (side > 0) setX(Math.min(side * scrollY.get() - start, 400));
-    if (side < 0) setX(Math.max(start + side * scrollY.get(), 400));
+    if (side > 0) setX(Math.min(side * scrollY.get() - start, window.innerWidth / 6)); // Add Offset of Card
+    if (side < 0) setX(Math.max(start + side * scrollY.get(), -window.innerWidth / 6));
   });
 
    return (
     <div className="text-primary text-8xl m-10">
       <motion.div animate={{ x }} transition={{ type: "spring" }}>
-        <Card>Hello</Card>
+        <Longcard description={description} side={side} logoUrl={url} width={width} height={height}></Longcard>
       </motion.div>
     </div>
   );
@@ -24,16 +23,16 @@ function ParallaxText({ start, side }) {
 
 export function Main() {
   return (
-    <div className='h-screen bg-highlight'>
+    <div className='h-full bg-gray-100'>
       {/* <!-- Scroll wrapper --> */}
       <div className='flex-1 flex overflow-hidden'>
         {/* <!-- Scrollable container --> */}
         <div className='flex-1 overflow-y-scroll'>
           {/* <!-- Your content --> */}
           <section>
-            <ParallaxText start={250} side={2}>Frame One</ParallaxText>
-            <ParallaxText start={1750} side={-2}>Frame Two</ParallaxText>
-            <ParallaxText start={1600} side={2}>Frame Three</ParallaxText>
+            <ParallaxText description={'Description One'} start={600} side={2} url={'/conneqt_card_1.png'} width={800} height={100}></ParallaxText>
+            <ParallaxText description={'Description Two'} start={600} side={-2} url={'/conneqt_card_2.png'} width={290} height={100}></ParallaxText>
+            <ParallaxText description={'Description Three'} start={600} side={2} url={'/conneqt_card.png'} width={800} height={100}></ParallaxText>
           </section>
         </div>
       </div>

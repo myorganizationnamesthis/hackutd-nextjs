@@ -29,7 +29,7 @@ export function Navbar() {
 
   return (
     <>
-      <div className='fixed w-full mt-2 text-black '>
+      <div className='z-10 _dialog_overlay fixed w-full mt-2 text-black '>
         <div className='container mx-auto px-8 py-4 flex items-center justify-between bg-white rounded-md'>
           {/* Left Nav */}
           <div className='hidden md:flex'>
