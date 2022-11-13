@@ -47,7 +47,7 @@ export function Navbar() {
                 </ul>
 
                 {/* Mobile Button */}
-                <div onClick={handleNav} className='block sm:hidden z-10 mr-4'>
+                <div onClick={handleNav} className='cursor-pointer block sm:hidden z-10 mr-4'>
                     {nav ? (
                         <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
                     ) : (

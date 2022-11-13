@@ -5,7 +5,6 @@ export function Hero({ heading, message }) {
   const router = useRouter();
   return (
     <div className='z-[-5] flex items-center justify-center h-screen bg-center bg-cover custom-img'>
-      <div className='block absolute top-[4.5rem] h-screen left-0 right-0 bottom-0 bg-black opacity-60' />
       {/* Overlay */}
       <div className='p-5 text-highlight mt-[-10rem]'>
         <h2 className='text-5xl font-bold'>{heading}</h2>
