@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  font-family: 'Inter', sans-serif;
+}
+
 html,
 body {
   padding: 0;
@@ -24,7 +34,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: #F4F7F5;
+    background: #111111;
   }
 }
