@@ -29,6 +29,10 @@ a {
   box-sizing: border-box;
 }
 
+.custom-img {
+  background-image: url('https://wallpaper.dog/large/20407836.jpg')
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
