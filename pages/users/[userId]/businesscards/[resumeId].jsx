@@ -79,7 +79,7 @@ const Profile = () => {
     <div className='overflow-y-auto'>
       <div className='h-screen max-w-lg mx-auto bg-background justify-center '>
         {/* Test */}
-        <div className=' h-64 rounded-xl relative m-2 py-2 cursor-pointer perspective'>
+        <div className='h-64 rounded-xl relative m-2 py-2 cursor-pointer perspective'>
           <div
             className={`relative w-full h-full preserve-3d duration-1000 ${
               flipCard === false ? 'my-rotate-y-180' : ''
@@ -95,7 +95,7 @@ const Profile = () => {
             >
               <div className='bg-primary rounded-xl h-64'>
                 {/* Profile Pic */}
-                <div className='rounded-t-xl pl-2 pt-2 h-32 '>
+                <div className='rounded-xl pl-2 pt-2 h-32 '>
                   <Image
                     src='/default_profile.png'
                     alt='Profile Picture'
@@ -117,7 +117,7 @@ const Profile = () => {
                   <div className='font-bold text-3xl'>{userData?.name}</div>
 
                   {/* Title */}
-                  <div className='italic font-bold mt-1.5 line-clamp-2'>
+                  <div className='italic font-bold mt-1.5 line-clamp-1'>
                     {userData?.job_title || ''}
                   </div>
                   {/* Location */}
@@ -182,7 +182,6 @@ const Profile = () => {
           >
             <div className='font-bold text-2xl'>Contact</div>
           </Link>
-
           <Link
             href={userData?.resume ?? ''}
             target='_blank'

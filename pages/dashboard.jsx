@@ -52,13 +52,13 @@ export default function Dashboard() {
                 You have no digital business cards.
               </p>
             )}
-            <div className='flex flex-wrap md:gap-x-2 mx-auto items-center content-center z'>
+            <div className='flex flex-wrap md:gap-x-2 mx-auto items-center content-center z '>
               {resumes.map((resume, index) => {
                 return (
                   <button
                     onClick={() => Router.push(`/cards/${resume.id}`)}
                     key={index}
-                    className='bg-secondary rounded-lg p-4 mt-4 mr-8 text-xl sm:w-[20rem] md:w-[24rem]'
+                    className='hover:text-white hover:scale-105 bg-secondary rounded-lg p-4 mt-4 mr-8 text-xl sm:w-[20rem] md:w-[24rem] '
                   >
                     Card {index + 1}
                     <iframe
