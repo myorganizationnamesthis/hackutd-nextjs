@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Product = () => {
@@ -19,10 +20,10 @@ const Product = () => {
                     />
                   </div>
                   <h3 className='mt-6 text-sm text-gray-500'>
-                    <a href='#'>
+                    <Link href='#'>
                       <span className='absolute inset-0'></span>
                       Desk and Office
-                    </a>
+                    </Link>
                   </h3>
                   <p className='text-base font-semibold text-gray-900'>
                     Work from home accessories
@@ -38,10 +39,10 @@ const Product = () => {
                     />
                   </div>
                   <h3 className='mt-6 text-sm text-gray-500'>
-                    <a href='#'>
+                    <Link href='#'>
                       <span className='absolute inset-0'></span>
                       Self-Improvement
-                    </a>
+                    </Link>
                   </h3>
                   <p className='text-base font-semibold text-gray-900'>
                     Journals and note-taking
@@ -57,10 +58,10 @@ const Product = () => {
                     />
                   </div>
                   <h3 className='mt-6 text-sm text-gray-500'>
-                    <a href='#'>
+                    <Link href='#'>
                       <span className='absolute inset-0'></span>
                       Travel
-                    </a>
+                    </Link>
                   </h3>
                   <p className='text-base font-semibold text-gray-900'>
                     Daily commute essentials
