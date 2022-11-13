@@ -116,7 +116,9 @@ export default function Upload() {
           </main>
         ) : (
           <main className='ml-4 mt-24'>
-            <h1 className='text-6xl font-bold mt-2'>Verify Information</h1>
+            <h1 className='text-6xl font-bold mt-2 text-white'>
+              Verify Information
+            </h1>
             <div className='text-primary text-xl my-4'>
               Please verify the information we obtained from your resume.
             </div>
@@ -125,9 +127,9 @@ export default function Upload() {
                 ? Object.keys(aiResponse).map((k, index) => {
                     return (
                       <div key={index} className='flex flex-col mb-3'>
-                        <label className='text-xl font-bold'>{`${k}: `}</label>
+                        <label className='text-xl font-bold text-white'>{`${k}: `}</label>
                         <input
-                          className='block w-full bg-secondary border-0 rounded ml-4 mt-2 px-4 py-2 cursor-pointer'
+                          className='block w-full bg-secondary border-0 rounded ml-4 mt-2 px-4 py-2 cursor-pointer text-white'
                           type='text'
                           value={aiResponse[k]}
                           onChange={(e) => {
