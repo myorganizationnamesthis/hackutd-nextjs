@@ -118,7 +118,7 @@ const Profile = () => {
 
                   {/* Title */}
                   <div className='italic font-bold mt-1.5 line-clamp-2'>
-                    {userData?.title || 'Testing title'}
+                    {userData?.job_title || ''}
                   </div>
                   {/* Location */}
                   <div className='opacity-70 text-sm font-semibold'>
@@ -208,11 +208,11 @@ const Profile = () => {
         {/* Description */}
         <div className='rounded-xl relative mx-2'>
           {/* About Me */}
-          {userData?.description ? (
+          {userData?.about_me ? (
             <div className='bg-primary mt-1 px-4 py-2 rounded-xl '>
               <div className='font-semibold'>About Me</div>
               <div className='pl-4 text-sm italic line-clamp-5 md:line-clamp-3 text-gray-300'>
-                {userData?.description}
+                {userData?.about_me}
               </div>
             </div>
           ) : null}
