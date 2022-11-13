@@ -27,7 +27,7 @@ export function Navbar() {
     }, []);
 
     return (
-        <div className='left-0 top-0 w-full z-10 ease-in duration-300 bg-accent'>
+        <div className='left-0 top-0 w-full ease-in duration-300 bg-accent'>
             <div className='m-auto flex justify-between items-center p-4 text-highlight'>
                 <Link href='/'>
                     <h1 className='font-bold text-highlight text-4xl hover:text-primary duration-300 ml-2'>
