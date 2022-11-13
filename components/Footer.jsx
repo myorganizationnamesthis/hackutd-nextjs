@@ -75,7 +75,7 @@ export function Footer() {
       <div className='sm:flex sm:items-center sm:justify-between mb-1'>
         <span className='text-sm text-accent sm:text-center'>
           © 2022{' '}
-          <a href='#' class='hover:underline'>
+          <a href='#' className='hover:underline'>
             CONNEQT™
           </a>{' '}
           All Rights Reserved
