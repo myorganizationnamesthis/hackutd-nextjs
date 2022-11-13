@@ -43,7 +43,7 @@ export function Navbar() {
                 </button>
                 {/* Dropdown */}
                 <div className='absolute top-5 -left-8 transition group-hover:translate-y-1 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform '>
-                  <div className='flex flex-row justify-around container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
+                  <div className='flex flex-col items-center space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0 justify-items-center content-center container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
                     <Card
                       header={'Conneqt Card'}
                       price={'40'}
