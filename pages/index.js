@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Hero } from '../components'
+import { Hero, Main } from '../components'
 import styles from '../styles/Home.module.css'
 import { useUser } from '../firebase/useUser'
 import { useEffect } from 'react'
@@ -15,7 +15,8 @@ export default function Home() {
       <Head>
         <title>Home | ConnectApp</title>
       </Head>
-      <Hero heading='CONNEQT Card Services' message='Job Search Made Easy.' />
+      <Hero heading='CONNEQT' message='Student Job Search Made Easy.' />
+      <Main />
     </>
   )
 }
