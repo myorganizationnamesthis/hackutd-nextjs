@@ -1,22 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Hero, Main } from '../components'
+import { Hero, Main, Footer } from '../components'
 import styles from '../styles/Home.module.css'
 import { useUser } from '../firebase/useUser'
 import { useEffect } from 'react'
 
 export default function Home() {
-  const { user, logout } = useUser();
-  useEffect(() => {
-    if (user) window.location.href = "/dashboard";
-  }, [user])
   return (
     <>
       <Head>
         <title>Home | ConnectApp</title>
       </Head>
-      <Hero heading='CONNEQT' message='Student Job Search Made Easy.' />
+      <Hero heading='CONNEQT' message='Professional Connections Made Easy.' />
       <Main />
+      <Footer />
     </>
   )
 }
