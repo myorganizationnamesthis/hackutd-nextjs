@@ -132,8 +132,32 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Continue */}
-        <div className='rounded-xl relative m-2 py-2'>
+        {/* Save Contact */}
+        <div className='flex flex-row pt-2 m-2 gap-x-2 '>
+          <div className='flex flex-row bg-gradient-to-r from-secondary to-blue-500 rounded-xl justify-center items-center flex-auto hover:scale-[101%] hover:text-white '>
+            <div className='font-bold text-2xl'>Save Contact</div>
+          </div>
+
+          <div className='flex flex-row bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl w-16 h-16 justify-center items-center hover:text-white cursor-pointer hover:scale-[101%]'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              fill='none'
+              viewBox='0 0 24 24'
+              strokeWidth='1.5'
+              stroke='currentColor'
+              className='w-12 h-12'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                d='M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3'
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Description */}
+        <div className='rounded-xl relative mx-2'>
           {/* About Me */}
           <div className='bg-gradient-to-l from-secondary to-blue-500 mt-1 px-2 rounded-xl '>
             <div className='font-semibold'>About Me</div>
