@@ -25,6 +25,7 @@ export default function Upload() {
 
 
     const upload = async () => {
+        if (!user) return;
         const snowflake = Date.now().toString();
         const sRef = ref(storage, `resumes/${user.id}/${snowflake}.pdf`);
         if (selectedFile?.type === "application/pdf") {
@@ -66,7 +67,7 @@ export default function Upload() {
                 <title>Upload | CONNEQT</title>
             </Head>
             <Modal open={showModal} setOpen={setShowModal} />
-            {!aiResponse ? <main>
+            {user ? !aiResponse ? <main>
                 <h1 className="text-6xl font-bold">Upload</h1>
                 <div className="text-secondary text-xl">Upload your resume here!</div>
                 <input accept="application/pdf" className="block w-full file:bg-secondary file:border-0 file:rounded ml-4 mt-2 file:px-4 file:py-2 file:cursor-pointer" type="file" onChange={e => {
@@ -114,7 +115,7 @@ export default function Upload() {
                         });
                         window.location.href = "/dashboard";
                     }}>Submit</button>
-                </main>}
+                </main> : null}
         </div>
     );
 }

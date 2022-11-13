@@ -38,12 +38,13 @@ export default function Card() {
     }
 
     useEffect(() => {
+        console.log(user);
         if (user)
             handlePageLoad();
     }, [user])
 
-    return (
-        <main className="ml-4">
+    return ( <>
+        {user ? <main className="ml-4">
             <h1 className="text-6xl font-bold mt-2">Resume Data</h1>
             <div className="text-primary text-xl my-4">Update resume info</div>
             <div className="max-w-[50%]">
@@ -63,6 +64,6 @@ export default function Card() {
                     <button className="block bg-secondary px-4 py-2 mt-8 rounded text-highlight disabled:opacity-50" onClick={handleUpdate} disabled={processing}>Update</button>
                 </div>
             </div>
-        </main>
-    );
+        </main> : null}
+    </>);
 }
