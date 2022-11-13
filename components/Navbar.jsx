@@ -71,6 +71,7 @@ export function Navbar() {
             </div>
           </div>
           {/* Mid Nav */}
+
           <Link
             href='/'
             className='font-bold text-primary text-xl hover:text-secondary '
@@ -86,12 +87,22 @@ export function Navbar() {
             <Link href='/contact' className='hover:text-primary hidden md:flex'>
               Contact
             </Link>
-            <Link
-              href='/'
-              className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
-            >
-              Login
-            </Link>
+
+            {user ? (
+              <div
+                onClick={() => logout()}
+                className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
+              >
+                Logout
+              </div>
+            ) : (
+              <Link
+                href='/auth'
+                className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
+              >
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu */}
