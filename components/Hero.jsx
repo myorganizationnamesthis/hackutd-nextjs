@@ -20,7 +20,7 @@ export function Hero({ heading, message }) {
           </p>
           <div className='font-montserrat'>
             <button
-              className='bg-primary px-6 py-4 rounded-lg text-black mr-2 mb-2 hover:bg-secondary'
+              className='bg-primary px-6 py-4 rounded-lg text-white mr-2 mb-2 hover:bg-secondary'
               onClick={() => router.push('/auth')}
             >
               Get Started
