@@ -49,8 +49,11 @@ export function Navbar() {
           </div>
         </div>
         {/* Mid Nav */}
-        <Link href='/' className='font-bold text-black text-xl'>
-          TABBED
+        <Link
+          href='/'
+          className='font-bold text-primary text-xl hover:text-secondary '
+        >
+          CONNEQT
         </Link>
 
         {/* Right Nav */}
@@ -68,6 +71,7 @@ export function Navbar() {
             Login
           </Link>
         </div>
+
         {/* Mobile Menu */}
         <div
           className={
