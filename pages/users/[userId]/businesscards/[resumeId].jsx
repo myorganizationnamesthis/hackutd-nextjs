@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { React, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from 'firebase/firestore'
 import { initFirebase, db } from '../../../../firebase/clientApp'
-import Image from 'next/image';
+import Image from 'next/image'
 
 // const userData = {
 //   name: 'Ephraim Sun',
@@ -43,55 +43,66 @@ import Image from 'next/image';
 //   grade: 'Sophomore',
 // }
 
-initFirebase();
+initFirebase()
 
 const Profile = () => {
   const Router = useRouter()
   const { userId, resumeId } = Router.query
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(null)
 
   const handlePageLoad = async () => {
-    console.log("Params", Router.query);
-    const docRef = doc(db, "users", userId, "resumes", resumeId);
-    const resDoc = await getDoc(docRef);
+    console.log('Params', Router.query)
+    const docRef = doc(db, 'users', userId, 'resumes', resumeId)
+    const resDoc = await getDoc(docRef)
     if (resDoc.exists()) {
-      const card = resDoc.data();
-      card.link = [{ name: "LinkedIn", link: card.linkedin ?? "" }, { name: "Github", link: card.github ?? "" }, { name: "Twitter", link: card.twitter ?? "" }];
-      console.log("Document data:", card);
-      setUserData(card);
+      const card = resDoc.data()
+      card.link = [
+        { name: 'LinkedIn', link: card.linkedin ?? '' },
+        { name: 'Github', link: card.github ?? '' },
+        { name: 'Twitter', link: card.twitter ?? '' },
+      ]
+      console.log('Document data:', card)
+      setUserData(card)
     } else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
+      console.log('No such document!')
     }
   }
 
   useEffect(() => {
-    if (Object.keys(Router.query).length > 0)
-      handlePageLoad();
+    if (Object.keys(Router.query).length > 0) handlePageLoad()
   }, [Router.query])
 
   const [flipCard, setFlipCard] = useState(false)
 
   return (
     <div className='overflow-y-auto'>
-      <div className='h-full max-w-lg mx-auto bg-background justify-center'>
+      <div className='h-screen max-w-lg mx-auto bg-background justify-center '>
         {/* Test */}
         <div className=' h-64 rounded-xl relative m-2 py-2 cursor-pointer perspective'>
           <div
-            className={`relative w-full h-full preserve-3d duration-1000 ${flipCard === false ? 'my-rotate-y-180' : ''
-              } `}
+            className={`relative w-full h-full preserve-3d duration-1000 ${
+              flipCard === false ? 'my-rotate-y-180' : ''
+            } `}
           >
             {/* Front Card === false*/}
             {/* Back Card === true*/}
             <button
-              className={`absolute w-full h-full ${flipCard === false ? 'my-rotate-y-180' : ''
-                } backface-hidden`}
+              className={`absolute w-full h-full ${
+                flipCard === false ? 'my-rotate-y-180' : ''
+              } backface-hidden`}
               onClick={() => setFlipCard(!flipCard)}
             >
               <div className='bg-primary rounded-xl h-64'>
                 {/* Profile Pic */}
-                <div className=' rounded-t-xl pl-2 pt-2 h-32 '>
-                  <div className='rounded-full bg-purple-500 w-32 h-32 absolute border-primary border-2' />
+                <div className='rounded-t-xl pl-2 pt-2 h-32 '>
+                  <Image
+                    src='/default_profile.png'
+                    alt='Profile Picture'
+                    className='rounded-full w-32 h-32 absolute border-2'
+                    width={48}
+                    height={48}
+                  />
 
                   <Link
                     href='/'
@@ -103,11 +114,11 @@ const Profile = () => {
 
                 <div className='px-2 pb-4 mt-2'>
                   {/* Name */}
-                  <div className='font-bold text-2xl'>{userData?.name}</div>
+                  <div className='font-bold text-3xl'>{userData?.name}</div>
 
                   {/* Title */}
                   <div className='italic font-bold mt-1.5 line-clamp-2'>
-                    {userData?.title}
+                    {userData?.title || 'Testing title'}
                   </div>
                   {/* Location */}
                   <div className='opacity-70 text-sm font-semibold'>
@@ -120,15 +131,21 @@ const Profile = () => {
 
             {/* Back Card */}
             <button
-              className={`absolute w-full h-full ${flipCard === true ? '' : ''
-                } backface-hidden`}
+              className={`absolute w-full h-full ${
+                flipCard === true ? '' : ''
+              } backface-hidden`}
               onClick={() => setFlipCard(!flipCard)}
             >
               <div className='bg-primary to-violet-400 rounded-xl h-64'>
                 {/* Profile Pic */}
                 <div className='rounded-t-xl pl-2 pt-2 h-32 '>
-                  <div className='rounded-full bg-purple-500 w-32 h-32 absolute right-2 top-1 border-violet-400 border-2'></div>
-
+                  <Image
+                    src='/default_school.png'
+                    alt='University Profile'
+                    className='rounded-full w-32 h-32 absolute right-2 top-1 border-2'
+                    width={48}
+                    height={48}
+                  />
                   <Link
                     href='/'
                     className='absolute left-4 text-purple-900 font-bold italic hover:opacity-80 hover:scale-90'
@@ -167,7 +184,7 @@ const Profile = () => {
           </Link>
 
           <Link
-            href={userData?.resume ?? ""}
+            href={userData?.resume ?? ''}
             target='_blank'
             className='flex flex-row bg-primary rounded-xl w-16 h-16 justify-center items-center hover:text-white cursor-pointer hover:scale-[101%]'
           >
@@ -191,44 +208,54 @@ const Profile = () => {
         {/* Description */}
         <div className='rounded-xl relative mx-2'>
           {/* About Me */}
-          {userData?.description ? <div className='bg-primary mt-1 px-4 py-2 rounded-xl '>
-            <div className='font-semibold'>About Me</div>
-            <div className='pl-4 text-sm italic line-clamp-5 md:line-clamp-3 text-gray-300'>
-              {userData?.description}
+          {userData?.description ? (
+            <div className='bg-primary mt-1 px-4 py-2 rounded-xl '>
+              <div className='font-semibold'>About Me</div>
+              <div className='pl-4 text-sm italic line-clamp-5 md:line-clamp-3 text-gray-300'>
+                {userData?.description}
+              </div>
             </div>
-          </div> : null}
+          ) : null}
 
           {console.log(userData)}
           {/* Links */}
           {userData?.link?.map((item, index) => {
-            if (!item.link) return;
-            return <Link href={item.link} key={index}>
-              <div className='bg-gradient-to-r from-primary via-secondary to-purple-500 rounded-xl h-16 mt-2 ml-8 px-10 relative group hover:scale-[102%]'>
-                <div className='rounded-full bg-white w-14 h-14 absolute top-1 -left-8'>
-                  <Image src={`/${item.name.toLowerCase()}.png`} alt="" width="128" height="128" className='rounded-full' />
-                </div>
-                <div className='absolute right-2 top-5 group-hover:text-white'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth='1.5'
-                    stroke='currentColor'
-                    className='w-6 h-6'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
+            if (!item.link) return
+            return (
+              <Link href={item.link} key={index}>
+                <div className='bg-gradient-to-r from-primary via-secondary to-purple-500 rounded-xl h-16 mt-2 ml-8 px-10 relative group hover:scale-[102%]'>
+                  <div className='rounded-full bg-white w-14 h-14 absolute top-1 -left-8'>
+                    <Image
+                      src={`/${item.name.toLowerCase()}.png`}
+                      alt=''
+                      width='128'
+                      height='128'
+                      className='rounded-full'
                     />
-                  </svg>
+                  </div>
+                  <div className='absolute right-2 top-5 group-hover:text-white'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      strokeWidth='1.5'
+                      stroke='currentColor'
+                      className='w-6 h-6'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
+                      />
+                    </svg>
+                  </div>
+                  <div className='font-bold text-xl pt-1.5'>{item.name}</div>
+                  <div className='opacity-60 text-sm italic truncate'>
+                    {item.link}
+                  </div>
                 </div>
-                <div className='font-bold text-xl pt-1.5'>{item.name}</div>
-                <div className='opacity-60 text-sm italic truncate'>
-                  {item.link}
-                </div>
-              </div>
-            </Link>
+              </Link>
+            )
           })}
 
           {/* Skills */}

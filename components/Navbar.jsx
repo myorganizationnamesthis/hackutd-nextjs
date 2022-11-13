@@ -84,9 +84,16 @@ export function Navbar() {
             <Link href='/about' className='hover:text-primary hidden md:flex'>
               About
             </Link>
-            <Link href='/contact' className='hover:text-primary hidden md:flex'>
-              Contact
-            </Link>
+            {user ? (
+              <Link
+                href='/dashboard'
+                className='hover:text-primary hidden md:flex'
+              >
+                Dashboard
+              </Link>
+            ) : (
+              ''
+            )}
 
             {user ? (
               <div
