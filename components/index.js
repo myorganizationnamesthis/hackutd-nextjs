@@ -1,6 +1,6 @@
 export * from './Footer'
 export * from './Hero'
-export * from './Main'
+export * from './Main.jsx'
 export * from './Modal'
 export * from './Navbar'
 export * from './Card.jsx'
