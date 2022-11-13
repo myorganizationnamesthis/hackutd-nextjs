@@ -13,15 +13,19 @@ export default function Home() {
       </Head>
       <Hero heading='CONNEQT' message='Professional Connections Made Easy.' />
       <Main />
+      {/* <!-- Hero --> */}
+
       <Footer />
     </>
   )
 }
 
-{/* </>
+{
+  /* </>
       <body>
         {user ? null : <div className='text-primary text-2xl'>
           Welcome to CONNEQT! This application lets you create a digital business card from just a resume! Please sign in to begin...
         </div>}
       </body>
-    </> */}
+    </> */
+}
