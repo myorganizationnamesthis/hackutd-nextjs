@@ -29,7 +29,7 @@ export function Navbar() {
 
   return (
     <>
-      <div className='z-10 _dialog_overlay fixed w-full mt-2 text-black '>
+      <div className='z-10 fixed w-full mt-2 text-black '>
         <div className='container mx-auto px-8 py-4 flex items-center justify-between bg-white rounded-md'>
           {/* Left Nav */}
           <div className='hidden md:flex'>
@@ -43,7 +43,7 @@ export function Navbar() {
                 </button>
                 {/* Dropdown */}
                 <div className='absolute top-5 -left-8 transition group-hover:translate-y-1 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 transform '>
-                  <div className='flex flex-row justify-around container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
+                  <div className='flex flex-col items-center space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0 justify-items-center content-center container relative top-6 p-6 bg-white rounded-b-xl shadow-xl w-screen'>
                     <Card
                       header={'Conneqt Card'}
                       price={'40'}
@@ -71,6 +71,7 @@ export function Navbar() {
             </div>
           </div>
           {/* Mid Nav */}
+
           <Link
             href='/'
             className='font-bold text-primary text-xl hover:text-secondary '
@@ -80,18 +81,35 @@ export function Navbar() {
 
           {/* Right Nav */}
           <div className='flex flex-row items-center gap-x-8 font-semibold'>
-            <Link href='/about' className='hover:text-primary hidden md:flex'>
+            <Link href='/' className='hover:text-primary hidden md:flex'>
               About
             </Link>
-            <Link href='/contact' className='hover:text-primary hidden md:flex'>
-              Contact
-            </Link>
-            <Link
-              href='/'
-              className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
-            >
-              Login
-            </Link>
+            {user ? (
+              <Link
+                href='/dashboard'
+                className='hover:text-primary hidden md:flex'
+              >
+                Dashboard
+              </Link>
+            ) : (
+              ''
+            )}
+
+            {user ? (
+              <div
+                onClick={() => logout()}
+                className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
+              >
+                Logout
+              </div>
+            ) : (
+              <Link
+                href='/auth'
+                className='rounded-xl font-medium px-6 py-2 bg-primary text-white flex items-center hover:bg-secondary'
+              >
+                Login
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -103,26 +121,23 @@ export function Navbar() {
             }
           >
             <ul>
-              <li
-                onClick={handleNav}
-                className='p-4 text-4xl hover:text-primary duration-300'
-              >
-                <Link href='/#gallery'>About</Link>
+              <li className='p-4 text-4xl hover:text-primary duration-300'>
+                <Link href='/about'>About</Link>
               </li>
-              <li
-                onClick={handleNav}
-                className='p-4 text-4xl hover:text-primary duration-300'
-              >
-                <Link href='/work'>Contact</Link>
-              </li>
-              <li
-                onClick={handleNav}
-                className='p-4 text-4xl hover:text-primary duration-300'
-              >
+
+              {user ? (
+                <li className='p-4 text-4xl hover:text-primary duration-300'>
+                  <Link href='/work'>Dashboard</Link>
+                </li>
+              ) : (
+                ''
+              )}
+
+              <li className='p-4 text-4xl hover:text-primary duration-300'>
                 {user ? (
-                  <div onClick={logout}>Logout</div>
+                  <div onClick={() => logout()}>Logout</div>
                 ) : (
-                  <Link href='/contact'>Login</Link>
+                  <Link href='/auth'>Login</Link>
                 )}
               </li>
             </ul>
